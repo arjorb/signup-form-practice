@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CardForm = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    confirm: '',
+    joined: false,
+  });
+
   return (
     <div className='w-[400px] px-8 py-20 bg-white rounded-md'>
       <form className='space-y-7'>
