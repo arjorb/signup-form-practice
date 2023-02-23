@@ -8,29 +8,50 @@ const CardForm = () => {
     joined: false,
   });
 
+  const handleChange = e => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('submited');
+  };
   return (
     <div className='w-[400px] px-8 py-20 bg-white rounded-md'>
-      <form className='space-y-7'>
+      <form className='space-y-7' onSubmit={handleSubmit}>
         <input
-          type='text'
+          type='email'
           placeholder='Email Address'
           className='border-2 border-gray-400 outline-none rounded-md text-xl p-2 w-full'
+          name='email'
+          value={formData.email}
+          onChange={handleChange}
         />
 
         <input
           type='password'
           placeholder='Password'
           className='border-2 border-gray-400 outline-none rounded-md text-xl p-2 w-full'
+          name='password'
+          value={formData.password}
+          onChange={handleChange}
         />
 
         <input
           type='password'
           placeholder='Confirm password'
           className='border-2 border-gray-400 outline-none rounded-md text-xl p-2 w-full'
+          name='confirm'
+          value={formData.confirm}
+          onChange={handleChange}
         />
 
         <div className='flex gap-5 items-center'>
-          <input type='checkbox' id='check' />
+          <input type='checkbox' id='check' name='joined' checked={formData.joined} onChange={handleChange} />
           <label htmlFor='check'>I want to join the newsletter</label>
         </div>
 
