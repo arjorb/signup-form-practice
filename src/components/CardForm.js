@@ -18,7 +18,17 @@ const CardForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('submited');
+
+    if (formData.password === formData.confirm) {
+      console.log('You have sign up successful 🎉');
+    } else {
+      console.log("password doesn't matching");
+      return;
+    }
+
+    if (formData.joined) {
+      console.log('Now you are subscribed on our newletter 📰');
+    }
   };
   return (
     <div className='w-[400px] px-8 py-20 bg-white rounded-md'>
