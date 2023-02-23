@@ -1,7 +1,9 @@
+import CardForm from './components/CardForm';
+
 function App() {
   return (
-    <div className='App'>
-      <h1 className='text-3xl text-[#016e66] font-bold underline'>Seting up the environment</h1>
+    <div className='flex justify-center mt-10'>
+      <CardForm />
     </div>
   );
 }
