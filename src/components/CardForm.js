@@ -19,6 +19,11 @@ const CardForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    if (formData.email == '' || formData.password == '' || formData.confirm == '') {
+      console.log('Please fill all the form');
+      return;
+    }
+
     if (formData.password === formData.confirm) {
       console.log('You have sign up successful 🎉');
     } else {
